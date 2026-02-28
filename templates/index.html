@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/home.css">
+    <title>home</title>
+{% endblock head %}
+
+{% block content %}
+    <!--main starts from here-->
+    <main>
+        <h1>hello</h1>
+        <br>
+        <h3>a bit about me</h3>
+        <br>
+        <p>
+            I’m <strong>Ramsundar Kumar Kushwaha</strong>, a software engineering student pursuing a <strong>B.Tech in Computer Science and Engineering at Quantum University, Roorkee</strong>. I have a strong technical foundation backed by a <strong>Diploma</strong> in Computer Science and Engineering, which has shaped my problem-solving approach and engineering mindset.
+            <br><br>
+            I focus on continuous learning and building practical, scalable technology solutions. Driven by discipline, adaptability, and attention to detail, I aim to create meaningful impact through well-structured and reliable software.
+        </p>
+    
+        <!--circular link box container-->
+        <div class="circular_link_box_container">
+            <div class="circular_link_box bg_orange">resume</div>
+            <div class="circular_link_box bg_gold_red">projects</div>
+            <div class="circular_link_box bg_light_blue">contact</div>
+        </div>
+
+        <!--profile picture container-->
+        <div class="profile_picture_container">
+            <div class="profile_picture"></div>
+        </div>
+
+    </main>
+    <script src="/static/scripts/index.js"></script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
+    <title>dashboard</title>
+{% endblock head %}
+{% block content %}
+    <!--form for adding projects-->
+    <form action="/addprojects" method="POST">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title">
+
+        <label for="desc">description</label>
+        <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..."></textarea>
+
+        <div class="dash_btn_group">
+            <button class="btn1 bg_dark" type="submit" value="submit">submit</button>
+            <button class="btn1 bg_dark" type="reset" value="reset">reset</button>
+        </div>
+    
+    </form>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

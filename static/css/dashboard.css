@@ -1,0 +1,32 @@
+form{
+    width: 90%;
+    margin: auto;
+}
+label{
+    display: block;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+}
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid gray;
+    text-transform: capitalize;
+    &:focus{
+        outline: none;
+    }
+}
+textarea{
+    padding: 1px 0 0 1px;
+    &:focus{
+        outline: none;
+    }
+}
+.dash_btn_group{
+    width: 90%;
+    height: auto;
+    display: flex;
+    margin: 1rem auto;
+}

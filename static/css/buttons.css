@@ -1,0 +1,13 @@
+.btn1{
+    width: 35vw;
+    height: 8vw;
+    padding: 1.4rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: whitesmoke;
+    border: none;
+    border-radius: 1rem;
+    font-size: 20px;
+    margin: auto;
+}

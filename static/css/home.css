@@ -1,0 +1,46 @@
+@media(min-width:340px) and (max-width:540px){
+    main{
+        width: 90%;
+        margin: 1rem auto 0 auto;
+    }
+    h1, h3{
+        text-transform: capitalize;
+    }
+    
+    p{
+        line-height: 1.4rem;
+    }
+    .circular_link_box_container{
+        width: 100%;
+        display: flex;
+        margin: 1rem 0 0 0;
+        padding: 2rem 0 0 0;
+    }
+    .circular_link_box{
+        width: 27%;
+        height: 24vw;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+        text-transform: capitalize;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .profile_picture_container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    .profile_picture{
+        width: 80%;
+        height: 70vw;
+        background-image: url(/static/profile/ramsundar.jpg);
+        background-position: center;
+        border-radius: 50%;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}  
+    {% endblock head %}
+    <link rel="stylesheet" href="/static/css/layout.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/color.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">ramsundar</div>
+        <ul>
+            <li>resume</li>
+            <li>projects</li>
+            <li>contact</li>
+        </ul>
+    </nav>
+
+    {% block content %}   
+    {% endblock %}
+
+    {% block footer %}
+        <!--footer section-->
+        <footer>
+            <div class="footer_contact_box">
+                <h3>phone</h3>
+                <li>+91 8972753801</li>
+                <br>
+                <h3>email</h3>
+                <li>24031051@quantumuniversity.edu.in</li>
+            </div>
+
+            <div class="footer_link_box_container">
+                <h3>follow me</h3>
+                <div class="link_box">
+                    <img src="/static/icons/github.png" alt="github" class="link_icon">
+                    <img src="/static/icons/linkedin.png" alt="github" class="link_icon">
+                    <img src="/static/icons/code.png" alt="github" class="link_icon">
+                </div>
+            </div>
+
+            <div class="copyright">&copy; 2026 ramsundar. all rights reserved.</div>
+        </footer>
+    {% endblock footer %}
+</body>
+</html>
