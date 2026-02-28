@@ -4,7 +4,7 @@ import os
 import mysql.connector
 
 #load environment variables
-load_dotenv("secret.env")
+load_dotenv()
 
 #create flask app
 app = Flask(__name__)
