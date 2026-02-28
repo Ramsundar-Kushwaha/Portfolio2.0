@@ -1,13 +1,29 @@
 .btn1{
-    width: 35vw;
+    width: 30vw;
     height: 8vw;
     padding: 1.4rem 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: whitesmoke;
     border: none;
     border-radius: 1rem;
     font-size: 20px;
     margin: auto;
+    cursor: pointer;
+}
+.btn2{
+    width: 40%;
+    padding: 0.7rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    border: none;
+    border-radius: 1rem;
+    font-size: 20px;
+    margin: 0 auto 0.5rem auto;
+    cursor: pointer;
 }

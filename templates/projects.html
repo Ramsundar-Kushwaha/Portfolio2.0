@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
     <title>projects</title>
 {% endblock head %}
 
@@ -17,6 +18,7 @@
             <div class="project_card">
                 <div class="project_title">{{ project.title }}</div>
                 <div class="project_description">{{ project.descriptions }}</div>
+                <div class="btn2 bg_dark">View</div>
             </div>
         {% endfor %}
     </main>
