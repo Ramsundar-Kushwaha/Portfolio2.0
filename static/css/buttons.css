@@ -12,18 +12,20 @@
     font-size: 20px;
     margin: auto;
     cursor: pointer;
+    background-color: black;
 }
 .btn2{
-    width: 40%;
-    padding: 0.7rem 0.3rem;
+    width: fit-content;
+    padding: 0.4rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: whitesmoke;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     font-size: 20px;
     margin: 0 auto 0.5rem auto;
     cursor: pointer;
+    background-color: black;
 }

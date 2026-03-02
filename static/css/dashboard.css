@@ -1,5 +1,9 @@
+h2{
+    text-align: center;
+}
 form{
     width: 90%;
+    height: 70vh;
     margin: auto;
 }
 label{
@@ -29,4 +33,23 @@ textarea{
     height: auto;
     display: flex;
     margin: 1rem auto;
+}
+#counter{
+    text-align: center;
+}
+table{
+    width: 90%;
+    margin: auto;
+}
+tr{
+    &:hover{
+        background-color: aliceblue;
+    }
+}
+th{
+    width: 65%;
+    text-align: left;
+}
+td{
+    padding: 0.5rem 0;
 }

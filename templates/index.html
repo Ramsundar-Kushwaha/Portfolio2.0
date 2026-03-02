@@ -8,7 +8,7 @@
 {% block content %}
     <!--main starts from here-->
     <main>
-        <h1>hello</h1>
+        <h1 id="greet">hello</h1>
         <br>
         <h3>a bit about me</h3>
         <br>
@@ -21,15 +21,15 @@
         <!--circular link box container-->
         <div class="circular_link_box_container">
             <div class="circular_link_box bg_orange">resume</div>
-            <div class="circular_link_box bg_gold_red">projects</div>
+            <div class="circular_link_box bg_gold_red"><a href="/projects">projects</a></div>
             <div class="circular_link_box bg_light_blue">contact</div>
         </div>
 
-        <!--profile picture container-->
-        <div class="profile_picture_container">
-            <div class="profile_picture"></div>
-        </div>
-
+        
     </main>
+    <!--profile picture container-->
+    <div class="profile_picture_container">
+        <div class="profile_picture"></div>
+    </div>
     <script src="/static/scripts/index.js"></script>
 {% endblock %}

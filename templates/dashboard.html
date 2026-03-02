@@ -2,23 +2,45 @@
 {% block head %}
     <link rel="stylesheet" href="/static/css/dashboard.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
+    <link rel="stylesheet" href="/static/css/color.css">
     <title>dashboard</title>
 {% endblock head %}
 {% block content %}
+    <h2>Welcome To Dashboard</h2>
+    <br><br><br>
     <!--form for adding projects-->
     <form action="/addprojects" method="POST">
         <label for="title">title</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" required>
 
         <label for="desc">description</label>
-        <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..."></textarea>
+        <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
 
         <div class="dash_btn_group">
-            <button class="btn1 bg_dark" type="submit" value="submit">submit</button>
-            <button class="btn1 bg_dark" type="reset" value="reset">reset</button>
+            <button class="btn1" type="submit" value="submit">submit</button>
+            <button class="btn1" type="reset" value="reset">reset</button>
         </div>
-    
     </form>
+    <h3 style="text-align: center; padding: 0.5rem 0; color: white; background-color: #111111;" class="bg_dark">Project List | Total: <span id="counter"></span></h3>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+            <th>Project Title</th>
+            <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>{{ project.title }}</td>
+                    <td>date</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="/static/scripts/dashboard.js"></script>
 {% endblock content %}
 
 {% block footer %}

@@ -39,7 +39,14 @@ def projects():
 # dash board
 @app.route("/dashboard")
 def dashBoard():
-    return render_template("dashboard.html")
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT title FROM projects")
+    data = cursor.fetchall()
+    print(data)
+    cursor.close()
+    conn.close()
+    return render_template("dashboard.html", projects = data)
 
 
 # route for adding projects
@@ -56,6 +63,7 @@ def add_project():
     conn.close()
 
     return redirect("/dashboard")
+
 
 # Run App
 if __name__ == "__main__":

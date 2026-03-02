@@ -4,6 +4,7 @@
         padding: 1rem 0;
         display: flex;
         text-transform: capitalize;
+        background-color: #1F2937;
     }
     .logo{
         width: 40%;
@@ -11,6 +12,11 @@
         font-family:Verdana, Geneva, Tahoma, sans-serif;
         border-left: 0.7rem solid orange;
         padding: 0 0 0 0.5rem;
+    }
+    nav a{
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
     }
     ul{
         display: none;

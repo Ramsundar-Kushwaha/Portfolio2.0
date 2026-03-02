@@ -1,18 +1,22 @@
 @media(min-width:340px) and (max-width:540px){
 
     footer{
-        width: 90%;
+        width: 100%;
         padding: 0.5rem 0 0;
-        border-top:1px solid gainsboro;
-        margin: 1rem auto 0 auto;
+        color: white;
+        background-color: #0d1b2a;
     }
     .footer_contact_box{
-        width: 100%;
-        margin: 1.5rem 0 0 0;
+        width: 90%;
+        margin: 1rem auto 0 auto;
+    }
+    footer h3{
+        text-transform: capitalize;
     }
     .footer_link_box_container{
-        width: 100%;
-        padding: 2rem 0;
+        width: 90%;
+        padding: 1rem 0;
+        margin: auto;
     }
     .link_box{
         display: flex;
@@ -27,8 +31,8 @@
     }
     .copyright{
         width: 90%;
-        padding: 0.5rem 0;
         text-transform: capitalize;
         color: gray;
+        text-align: center;
     }
 }
