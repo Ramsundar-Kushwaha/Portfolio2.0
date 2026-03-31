@@ -1,31 +1,15 @@
-.btn1{
-    width: 30vw;
-    height: 8vw;
-    padding: 1.4rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
+button{
+    width: 35%;
     border: none;
-    border-radius: 1rem;
-    font-size: 20px;
+    background-color:#008184;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: large;
     margin: auto;
-    cursor: pointer;
-    background-color: black;
-}
-.btn2{
-    width: fit-content;
-    padding: 0.4rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-    border: none;
-    border-radius: 0.8rem;
-    font-size: 20px;
-    margin: 0 auto 0.5rem auto;
-    cursor: pointer;
-    background-color: black;
+    &:hover{
+        background-color: #008184;
+    }
+    &:focus{
+        outline: none;
+    }
 }

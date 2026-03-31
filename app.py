@@ -36,6 +36,26 @@ def projects():
     conn.close()
     return render_template("projects.html", projects=data)
 
+# admin
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+# admin form submittion --> bug here
+@app.route("/admin", methods=["POST"])
+def adminLogin():
+    admin_id = int(request.form["admin_id"])
+    admin_name = request.form["admin_name"]
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM admin WHERE id = (%d)", admin_id)
+    data = cursor.fetchall()
+    print(data)
+    cursor.close()
+    conn.close()
+    return render_template("admin.html")
+
 # dash board
 @app.route("/dashboard")
 def dashBoard():

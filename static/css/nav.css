@@ -1,10 +1,12 @@
 @media(min-width:340px) and (max-width:540px){
     nav{
         width: 100%;
+        position: sticky;
+        top: 0;
         padding: 1rem 0;
         display: flex;
         text-transform: capitalize;
-        background-color: #1F2937;
+        background-color: #008184;
     }
     .logo{
         width: 40%;

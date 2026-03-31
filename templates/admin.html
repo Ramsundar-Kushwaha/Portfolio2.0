@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <title>Admin</title>
+</head>
+<body>
+    <main>
+        <h2 id="loading">admin login</h2>
+        <form action="/admin" method="POST">
+            <label for="admin_id">admin id</label>
+            <input type="number" name="admin_id" required>
+            <label for="admin_name">admin name</label>
+            <input type="text" name="admin_name" required>
+            <div class="btn_group">
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- <script src="/static/scripts/admin.js"></script> -->
+</body>
+</html>

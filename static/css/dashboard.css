@@ -1,55 +1,80 @@
-h2{
-    text-align: center;
-}
-form{
-    width: 90%;
-    height: 70vh;
-    margin: auto;
-}
-label{
-    display: block;
-    text-transform: capitalize;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 1rem 0 0.5rem 0;
-}
-input{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid gray;
-    text-transform: capitalize;
-    &:focus{
-        outline: none;
+@media(min-width:340px) and (max-width:540px){
+    /* css variables */
+    :root{
+        --standard-width : 90%;
+    
+        --aurdino-light-color : whitesmoke;
+        --branjel-color : rgba(113, 44, 249, 1);
+        --gray-color : gray;
+        --white-color : white;
+        --table-hover-color:aliceblue;
+    
+        --standart-fsize : 20px;
+        --standard-fweight : bold;
+        --standard-ttransform : capitalize;
     }
-}
-textarea{
-    padding: 1px 0 0 1px;
-    &:focus{
-        outline: none;
+    
+    body{
+        background-color: var(--aurdino-light-color);
     }
-}
-.dash_btn_group{
-    width: 90%;
-    height: auto;
-    display: flex;
-    margin: 1rem auto;
-}
-#counter{
-    text-align: center;
-}
-table{
-    width: 90%;
-    margin: auto;
-}
-tr{
-    &:hover{
-        background-color: aliceblue;
+    h2{
+        text-align: center;
     }
-}
-th{
-    width: 65%;
-    text-align: left;
-}
-td{
-    padding: 0.5rem 0;
+    form{
+        width: var(--standard-width);
+        height: 70vh;
+        margin: auto;
+    }
+    label{
+        display: block;
+        text-transform: var(--standard-ttransform);
+        font-size: var(--standard-fsize);
+        font-weight: var(--standard-fweight);
+        margin: 1rem 0 0.5rem 0;
+    }
+    input{
+        width: var(--standard-width);
+        height: 2rem;
+        border: none;
+        border-bottom: 1px solid var(--gray-color);
+        text-transform: capitalize;
+        box-shadow: 1px 1px 3px var(--gray-color);
+        &:focus{
+            outline: none;
+        }
+    }
+    textarea{
+        width: var(--standard-width);
+        padding: 1px 0 0 1px;
+        box-shadow: 1px 1px 3px var(--gray-color);
+        &:focus{
+            outline: none;
+        }
+    }
+    .dash_btn_group{
+        width: var(--standard-width);
+        height: auto;
+        display: flex;
+        margin: 1rem auto;
+    }
+    #counter{
+        text-align: center;
+    }
+    h3{
+        background-color: var(--branjel-color);
+        color: var(--white-color);
+        text-align: center;
+        padding: 1rem 0;
+    }
+    table{
+        width: var(--standard-width);
+        margin: auto;
+    }
+    th{
+        width: 65%;
+        text-align: left;
+    }
+    td{
+        padding: 0.5rem 0;
+    }
 }

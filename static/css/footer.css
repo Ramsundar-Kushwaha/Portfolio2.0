@@ -1,17 +1,17 @@
 @media(min-width:340px) and (max-width:540px){
-
     footer{
         width: 100%;
         padding: 0.5rem 0 0;
         color: white;
-        background-color: #0d1b2a;
+        background-color: black;
     }
     .footer_contact_box{
         width: 90%;
         margin: 1rem auto 0 auto;
     }
-    footer h3{
+    footer h4{
         text-transform: capitalize;
+        font-weight: lighter;
     }
     .footer_link_box_container{
         width: 90%;

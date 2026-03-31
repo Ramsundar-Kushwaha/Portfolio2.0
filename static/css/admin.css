@@ -1,0 +1,48 @@
+@media(min-width:340px) and (max-width:540px){
+    main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(45deg, rgba(113, 44, 249, 1) 50%, rgb(123, 66, 236) 50%);
+    }
+    h2{
+        text-transform: capitalize;
+        font-size: 2rem;
+        color: white;
+    }
+    form{
+        width: 90%;
+        margin: auto;
+        /* background-color: green; */
+    }
+    label{
+        display: block;
+        color: white;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    input{
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid black;
+        color: white;
+        &:focus{
+            outline: none;
+        }
+    }
+    .btn_group{
+        width: 100%;
+        display: flex;
+        margin: 2rem 0 0 0;
+    }
+    .btn_group > button{
+        padding: 0.5rem 1rem;
+        margin: auto;
+        font-weight: bold;
+    }
+}
