@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, session
 from dotenv import load_dotenv
 import os
 import mysql.connector
@@ -20,69 +20,113 @@ def get_db_connection():
         port=int(os.getenv("DB_PORT"))
     )
 
-#Home Page
+#home Page
 @app.route("/")
 def home():
     return render_template("index.html")
 
-#show projects (Dynamic)
+#show projects (Dynamically)
 @app.route("/projects")
 def projects():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM projects")
+
+    query = "SELECT * FROM projects"
+
+    cursor.execute(query)
     data = cursor.fetchall()
+
     cursor.close()
     conn.close()
-    return render_template("projects.html", projects=data)
 
-# admin
-@app.route("/admin")
-def admin():
-    return render_template("admin.html")
+    return render_template("projects.html", projects = data)
 
-# admin form submittion --> bug here
-@app.route("/admin", methods=["POST"])
+
+# admin page and form
+@app.route("/admin", methods=["GET", "POST"])
 def adminLogin():
-    admin_id = int(request.form["admin_id"])
+
+    # for GET method
+    if request.method == "GET":
+        return render_template("admin.html")
+    
+
+    # for POST method
+    admin_id = request.form["admin_id"]
     admin_name = request.form["admin_name"]
 
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM admin WHERE id = (%d)", admin_id)
-    data = cursor.fetchall()
-    print(data)
+    cursor = conn.cursor(dictionary=True)
+
+    query = "SELECT * FROM admin WHERE id = %s AND name = %s"
+    cursor.execute(query, (admin_id, admin_name,))
+
+    admin = cursor.fetchone()
+
+    # if authorized user (admin)
+    if admin:
+        session["admin_id"] = admin_id # building session
+
+        cursor.close()
+        conn.close()
+
+        return redirect(url_for("dashBoard"))
+    
+    # if unauthorized user (unknown user)
     cursor.close()
     conn.close()
-    return render_template("admin.html")
+    return render_template("admin.html", error = "Invalid admin")
+
 
 # dash board
 @app.route("/dashboard")
 def dashBoard():
+
+    # if not logged in as admin
+    if "admin_id" not in session:
+        return redirect(url_for("adminLogin"))
+    
+    # if loogged in as admin
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT title FROM projects")
+
+    query = "SELECT title FROM projects ORDER BY title DESC"
+    cursor.execute(query)
     data = cursor.fetchall()
-    print(data)
+    
     cursor.close()
     conn.close()
+
     return render_template("dashboard.html", projects = data)
 
 
 # route for adding projects
 @app.route("/addprojects", methods=["POST"])
 def add_project():
+    if "admin_id" not in session:
+        return redirect(url_for("adminLogin"))
+    
     title = request.form["title"]
     description = request.form["desc"]
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO projects (title, descriptions) VALUES (%s, %s)", (title, description))
+
+    query = "INSERT INTO projects (title, descriptions) VALUES (%s, %s)"
+
+    cursor.execute(query, (title, description))
     conn.commit()
+
     cursor.close()
     conn.close()
 
-    return redirect("/dashboard")
+    return redirect(url_for("dashBoard"))
+
+# logout system
+@app.route("/logout")
+def logOut():
+    session.clear()
+    return redirect(url_for("adminLogin"))
 
 
 # Run App

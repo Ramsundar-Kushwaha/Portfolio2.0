@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
     <title>projects</title>
 {% endblock head %}
@@ -20,7 +21,7 @@
                 <div class="project_image"><img src="https://media.geeksforgeeks.org/wp-content/uploads/20191113114209/CTutorial.png" alt="project picture"></div>
                 <div class="project_description">{{ project.descriptions }}</div>
                 <div class="btn">
-                    <button type="button">view</button>
+                    <button class="arduino_btn" type="button">view</button>
                 </div>
             </div>
         {% endfor %}

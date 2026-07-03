@@ -1,7 +1,7 @@
 @media(min-width:340px) and (max-width:540px){
     /* css variables */
     :root{
-        --standard-width : 90%;
+        --standard-width : 95%;
     
         --aurdino-light-color : whitesmoke;
         --branjel-color : rgba(113, 44, 249, 1);
@@ -14,39 +14,42 @@
         --standard-ttransform : capitalize;
     }
     
-    body{
-        background-color: var(--aurdino-light-color);
-    }
-    h2{
+    p{
         text-align: center;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
     }
+
     form{
         width: var(--standard-width);
         height: 70vh;
         margin: auto;
+        padding: 0 0 0 0.5rem;
+        background-color: white;
+        box-shadow: 1px 1px 5px black;
     }
     label{
         display: block;
         text-transform: var(--standard-ttransform);
         font-size: var(--standard-fsize);
         font-weight: var(--standard-fweight);
+        letter-spacing: 0.1rem;
         margin: 1rem 0 0.5rem 0;
     }
     input{
-        width: var(--standard-width);
+        width: 90%;
         height: 2rem;
         border: none;
-        border-bottom: 1px solid var(--gray-color);
+        border: 1px solid var(--gray-color);
         text-transform: capitalize;
-        box-shadow: 1px 1px 3px var(--gray-color);
         &:focus{
             outline: none;
         }
     }
     textarea{
-        width: var(--standard-width);
+        width: 90%;
         padding: 1px 0 0 1px;
-        box-shadow: 1px 1px 3px var(--gray-color);
         &:focus{
             outline: none;
         }
@@ -57,6 +60,26 @@
         display: flex;
         margin: 1rem auto;
     }
+    nav{
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        padding: 0.5rem 0;
+    }
+    ul{
+        display: flex;
+    }
+    li{
+        list-style: none;
+        margin: auto;
+    }
+    .icon{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
     #counter{
         text-align: center;
     }

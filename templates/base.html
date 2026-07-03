@@ -6,19 +6,20 @@
     {% block head %}  
     {% endblock head %}
     <link rel="stylesheet" href="/static/css/layout.css">
-    <link rel="stylesheet" href="/static/css/nav.css">
     <link rel="stylesheet" href="/static/css/color.css">
     <link rel="stylesheet" href="/static/css/footer.css">
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href="/">ramsundar</a></div>
-        <ul>
-            <li>resume</li>
-            <li>projects</li>
-            <li>contact</li>
-        </ul>
-    </nav>
+    {% block nav %}    
+        <nav>
+            <div class="logo"><a href="/">ramsundar</a></div>
+            <ul>
+                <li>resume</li>
+                <li>projects</li>
+                <li>contact</li>
+            </ul>
+        </nav>
+    {% endblock nav %}
 
     {% block content %}   
     {% endblock %}

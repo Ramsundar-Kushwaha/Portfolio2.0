@@ -1,4 +1,5 @@
 'use strict'
+// ----- for showing number of project in list -----
 const counter = document.querySelector("#counter");
 const project_list_length = document.querySelector("tbody").children.length
 console.log(counter);

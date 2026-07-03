@@ -1,4 +1,4 @@
-button{
+.arduino_btn{
     width: 35%;
     border: none;
     background-color:#008184;
@@ -8,6 +8,22 @@ button{
     margin: auto;
     &:hover{
         background-color: #008184;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+.black_btn{
+    width: 35%;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 0.5rem 1.5rem;
+    font-size: large;
+    margin: auto;
+    &:hover{
+        background-color: black;
+        color: white;
     }
     &:focus{
         outline: none;
