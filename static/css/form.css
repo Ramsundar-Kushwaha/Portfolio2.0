@@ -1,0 +1,45 @@
+@media(min-width:340px) and (max-width:540px){
+    :root{
+        --standard-width : 95%;
+    
+        --gray-color : gray;
+    
+        --standart-fsize : 20px;
+        --standard-fweight : bold;
+        --standard-ttransform : capitalize;
+    }
+
+    form{
+        width: var(--standard-width);
+        min-height: 50vh;
+        height: auto;
+        margin: auto;
+        padding: 0.5rem 0 0 0.5rem;
+        background-color: white;
+        box-shadow: 1px 1px 5px black;
+    }
+    label{
+        display: block;
+        text-transform: var(--standard-ttransform);
+        font-size: var(--standard-fsize);
+        font-weight: var(--standard-fweight);
+        letter-spacing: 0.1rem;
+        margin: 1rem 0 0.5rem 0;
+    }
+    input{
+        width: 90%;
+        height: 2rem;
+        border: none;
+        border: 1px solid var(--gray-color);
+        &:focus{
+            outline: none;
+        }
+    }
+    textarea{
+        width: 90%;
+        padding: 1px 0 0 1px;
+        &:focus{
+            outline: none;
+        }
+    }
+}

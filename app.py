@@ -53,13 +53,13 @@ def adminLogin():
 
     # for POST method
     admin_id = request.form["admin_id"]
-    admin_name = request.form["admin_name"]
+    password = request.form["password"]
 
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
     query = "SELECT * FROM admin WHERE id = %s AND name = %s"
-    cursor.execute(query, (admin_id, admin_name,))
+    cursor.execute(query, (admin_id, password,))
 
     admin = cursor.fetchone()
 
@@ -81,23 +81,11 @@ def adminLogin():
 # dash board
 @app.route("/dashboard")
 def dashBoard():
-
     # if not logged in as admin
     if "admin_id" not in session:
         return redirect(url_for("adminLogin"))
-    
-    # if loogged in as admin
-    conn = get_db_connection()
-    cursor = conn.cursor(dictionary=True)
 
-    query = "SELECT title FROM projects ORDER BY title DESC"
-    cursor.execute(query)
-    data = cursor.fetchall()
-    
-    cursor.close()
-    conn.close()
-
-    return render_template("dashboard.html", projects = data)
+    return render_template("dashboard.html")
 
 
 # route for adding projects
@@ -108,13 +96,14 @@ def add_project():
     
     title = request.form["title"]
     description = request.form["desc"]
+    img_link = request.form["img_link"]
 
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    query = "INSERT INTO projects (title, descriptions) VALUES (%s, %s)"
+    query = "INSERT INTO projects (title, descriptions, image_link) VALUES (%s, %s, %s)"
 
-    cursor.execute(query, (title, description))
+    cursor.execute(query, (title, description, img_link))
     conn.commit()
 
     cursor.close()
@@ -124,10 +113,43 @@ def add_project():
 
 # logout system
 @app.route("/logout")
-def logOut():
+def log_out():
     session.clear()
     return redirect(url_for("adminLogin"))
 
+@app.route("/projectList")
+def projectlist():
+    if "admin_id" not in session:
+        return redirect(url_for("adminLogin"))
+    
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary = True)
+
+    query = "SELECT title, descriptions, image_link FROM projects ORDER BY title"
+    
+    cursor.execute(query)
+    project_list = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return render_template("projectList.html", projects = project_list)
+
+@app.route("/delete_project/<string:project_title>", methods = ["POST"])
+def delete_project(project_title):
+    if "admin_id" not in session:
+        return redirect(url_for("adminLogin"))
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    query = "DELETE FROM projects WHERE title = %s"
+    cursor.execute(query, (project_title,))
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+    return redirect(url_for("projectlist"))
 
 # Run App
 if __name__ == "__main__":

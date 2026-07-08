@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/dashboard_nav.css">
+    <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
     <link rel="stylesheet" href="/static/css/color.css">
     <title>dashboard</title>
@@ -14,7 +16,7 @@
     <br><br><br>
 
     <!--form for adding projects-->
-    <form action="/addprojects" method="POST" id="dashboardForm">
+    <form onsubmit= "return confirmProject();" action="/addprojects" method="POST" id="dashboardForm">
         <label for="title">title</label>
         <input type="text" name="title" id="title" required>
 
@@ -22,42 +24,27 @@
         <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
 
         <label for="img_link">image Link</label>
-        <input type="text" name="img_link" id="img_link" placeholder="link here..." required>
+        <input type="text" name="img_link" placeholder="link here..." required>
 
         <div class="dash_btn_group">
-            <button class="black_btn" type="submit" value="submit">submit</button>
-            <button class="black_btn" type="reset" value="reset">reset</button>
+            <button class="submit" type="submit" value="submit" style="background-color: black;">submit</button>
+            <button class="submit" type="reset" value="reset" style="background-color: black;">reset</button>
         </div>
+
     </form>
 
     <nav>
         <ul>
             <li><a href="projectList"><img class="icon" src="/static/icons/project-management.png" alt="dashboard"></a></li>
             <li><a href="dashboard"><img class="icon" src="/static/icons/dashboard.png" alt="dashboard"></a></li>
-            <li><a href="{{ url_for('logOut') }}"><img class="icon" src="/static/icons/logout.png" alt="dashboard"></a></li>
+            <li><a href="{{ url_for('log_out') }}"><img class="icon" src="/static/icons/logout.png" alt="dashboard"></a></li>
         </ul>
     </nav>
-    <!-- <h3>Project List | Total: <span id="counter"></span></h3>
-    <br><br>
-    <table>
-        <thead>
-            <tr>
-            <th>Project Title</th>
-            <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for project in projects %}
-                <tr>
-                    <td>{{ project.title }}</td>
-                    <td>date</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table> -->
-
-    <!-- <script src="/static/scripts/dashboard.js"></script> -->
 {% endblock content %}
 
 {% block footer %}
 {% endblock footer %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename = 'scripts/dashboard.js')}}"></script>
+{% endblock scripts %}

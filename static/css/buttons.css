@@ -1,30 +1,18 @@
-.arduino_btn{
+.submit{
     width: 35%;
-    border: none;
-    background-color:#008184;
-    color: white;
     padding: 0.5rem 1.5rem;
-    font-size: large;
+    border: none;
     margin: auto;
-    &:hover{
-        background-color: #008184;
-    }
-    &:focus{
-        outline: none;
-    }
+    color: white;
 }
 
-.black_btn{
-    width: 35%;
-    border: 1px solid black;
-    background-color: transparent;
+.delete_btn{
+    width: 85%;
     padding: 0.5rem 1.5rem;
-    font-size: large;
-    margin: auto;
-    &:hover{
-        background-color: black;
-        color: white;
-    }
+    margin: 1rem auto;
+    border: none;
+    background-color: red;
+    color: white;
     &:focus{
         outline: none;
     }
