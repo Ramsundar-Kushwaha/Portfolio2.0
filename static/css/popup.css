@@ -1,0 +1,23 @@
+.success{
+    width: 90%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: lightgreen;
+    margin: auto;
+}
+
+.warning{
+    width: 90%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: yellow;
+    margin: auto;
+}
+
+.danger{
+    width: 90%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: yellow;
+    margin: auto;
+}

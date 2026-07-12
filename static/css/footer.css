@@ -1,38 +1,69 @@
-@media(min-width:340px) and (max-width:540px){
+footer{
+    background-color: #008184;
+    margin-top: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+.footer_section{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+}
+
+.footer_section h2{
+    color: white;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.3em;
+    font-style: normal;
+}
+
+.contact{
+    margin-top: 1rem;
+}
+
+.contact p{
+    line-height: 25px;
+}
+
+.contact a{
+    text-decoration: none;
+}
+.social_link{
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+}
+
+.social_link h4{
+    margin-bottom: 0.5em;
+}
+
+.copyright{
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 1rem 0 0 0;
+    color: #eee;
+}
+
+.social_link .link_box{
+    display: flex;
+    width: min(230px, 100%);
+}
+
+.link_box a{
+    margin: 0 1.5em 0 0;
+}
+
+.link_box img{
+    width: 30px;
+    height: 30px;
+}
+
+@media(min-width:600px){
     footer{
-        width: 100%;
-        padding: 0.5rem 0 0;
-        color: white;
-        background-color: #008184;
+        padding: 0;
     }
-    .footer_contact_box{
-        width: 90%;
-        margin: 1rem auto 0 auto;
-    }
-    footer h4{
-        text-transform: capitalize;
-        font-weight: lighter;
-    }
-    .footer_link_box_container{
-        width: 90%;
-        padding: 1rem 0;
-        margin: auto;
-    }
-    .link_box{
-        display: flex;
-        width: 90%;
-        padding: 0.5rem 0;
-    }
-    .link_icon{
-        width: 10%;
-        height: 8vw;
-        margin: 0 1rem 0 0;
-        cursor: pointer;
-    }
-    .copyright{
-        width: 90%;
-        text-transform: capitalize;
-        color: gray;
-        text-align: center;
+    .footer_section{
+        width: 80%;
+        justify-self: center;
     }
 }

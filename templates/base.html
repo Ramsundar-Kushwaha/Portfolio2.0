@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     {% block head %}  
     {% endblock head %}
-    <link rel="stylesheet" href="/static/css/layout.css">
+    <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/color.css">
     <link rel="stylesheet" href="/static/css/footer.css">
 </head>
 <body>
-    {% block nav %}    
+    <!-- header block -->
+    {% block nav %}
+    <header>
         <nav>
             <div class="logo"><a href="/">ramsundar</a></div>
             <ul>
@@ -19,36 +21,56 @@
                 <li>contact</li>
             </ul>
         </nav>
+    </header> 
     {% endblock nav %}
 
+    <!-- main content block -->
     {% block content %}   
     {% endblock %}
 
+    <!-- footer block -->
     {% block footer %}
-        <!--footer section-->
-        <footer>
-            <div class="footer_contact_box">
-                <h4>phone</h4>
-                <li>+91 8972753801</li>
-                <br>
-                <h4>email</h4>
-                <li>24031051@quantumuniversity.edu.in</li>
-            </div>
-
-            <div class="footer_link_box_container">
-                <h4>follow me</h4>
+    <footer>
+        <section class="footer_section">
+            <address class="contact">
+                <h2>Contact</h2>
+                <p>
+                    <a href="tel:+918972753801" target="_blank">+91 8972723801</a>
+                </p>
+                    
+                <p>
+                    <a href="mailto:24031051@quantumuniversity.edu.in" target="_blank">
+                        24031051@quantumuniversity.edu.in
+                    </a>
+                </p>
+            </address>
+    
+            <section class="social_link">
+                <h2>follow me</h2>
                 <div class="link_box">
-                    <img src="/static/icons/github.png" alt="github" class="link_icon">
-                    <img src="/static/icons/linkedin.png" alt="github" class="link_icon">
-                    <img src="/static/icons/code.png" alt="github" class="link_icon">
+                    <a href="https://github.com" target="_blank">
+                        <img src="/static/icons/github.png" alt="Github">
+                    </a>
+                    
+                    <a href="https://linkdin.com">
+                        <img src="/static/icons/linkedin.png" alt="Linkdin">
+                    </a>
+    
+                    <a href="https://leetcode.com">
+                        <img src="/static/icons/code.png" alt="Leetcode">
+                    </a>
                 </div>
-            </div>
-
-            <div class="copyright">&copy; 2026 ramsundar. all rights reserved.</div>
-        </footer>
+            </section>
+    
+            <p class="copyright">
+                &copy; 2026 ramsundar. all rights reserved.
+            </p>
+        </section>
+    </footer>
     {% endblock footer %}
     
-    {% block scripts %}
-    {% endblock scripts %}
+    <!-- script block -->
+    {% block script %}
+    {% endblock script %}
 </body>
 </html>

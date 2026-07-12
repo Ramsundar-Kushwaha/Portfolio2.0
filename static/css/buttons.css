@@ -1,18 +1,33 @@
+:root{
+    --standard-border-radius:0.3em;
+    --standard-opacity:0.8;
+    --standard-btn-height:40px;
+}
 .submit{
     width: 35%;
+    height: var(--standard-btn-height);
     padding: 0.5rem 1.5rem;
     border: none;
     margin: auto;
     color: white;
+    border-radius: var(--standard-border-radius);
+    &:hover{
+        opacity: var(--standard-opacity);
+    }
 }
 
 .delete_btn{
     width: 85%;
+    height: var(--standard-btn-height);
     padding: 0.5rem 1.5rem;
     margin: 1rem auto;
     border: none;
     background-color: red;
     color: white;
+    border-radius: var(--standard-border-radius);
+    &:hover{
+        opacity: var(--standard-opacity);
+    }
     &:focus{
         outline: none;
     }

@@ -1,32 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="/static/css/layout.css">
+{% extends 'base.html' %}
+{% block head %}
     <link rel="stylesheet" href="/static/css/admin.css">
     <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
     <title>Admin</title>
-</head>
-<body>
-    <main>
-        <h2 id="loading"></h2>
+{% endblock head %}
 
-        <form action="/admin" method="POST" id="adminForm">
-            <label for="admin_id">admin_Id</label>
-            <input type="number" name="admin_id" required>
+{% block nav %} 
+{% endblock nav %}
 
-            <label for="password">password</label>
-            <input type="password" name="password" required>
+{% block content %}
+<main class="admin_main">
+    <video autoplay muted loop id="video_background">
+        <source src="/static/video/178908-860734672.mp4" type="video/mp4">
+    </video>
 
-            <div class="btn_group">
-                <button class="submit" type="submit" style="background-color: black;">login</button>
-                <button class="submit" type="reset" style="background-color: black;">clear</button>
-            </div>
-        </form>
-    </main>
+    <div class="overlay"></div>
+    <form action="/admin" method="POST" id="admin_form">
+        <label for="admin_id">Admin Id</label>
+        <input type="number" name="admin_id" placeholder="number only..." required>
 
-    <script src="/static/scripts/admin.js"></script>
-</body>
-</html>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="********" required>
+
+        <div class="btn_group">
+            <button class="submit" type="submit" style="background-color: black;">login</button>
+            <button class="submit" type="reset" style="background-color: black;">clear</button>
+        </div>
+    </form>
+</main>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block script %}
+{% endblock script %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from dotenv import load_dotenv
 import os
 import mysql.connector
@@ -25,7 +25,7 @@ def get_db_connection():
 def home():
     return render_template("index.html")
 
-#show projects (Dynamically)
+# for showing projects (Dynamically)
 @app.route("/projects")
 def projects():
     conn = get_db_connection()
@@ -78,7 +78,7 @@ def adminLogin():
     return render_template("admin.html", error = "Invalid admin")
 
 
-# dash board
+# for dashboard page
 @app.route("/dashboard")
 def dashBoard():
     # if not logged in as admin
@@ -88,7 +88,7 @@ def dashBoard():
     return render_template("dashboard.html")
 
 
-# route for adding projects
+# for adding projects
 @app.route("/addprojects", methods=["POST"])
 def add_project():
     if "admin_id" not in session:
@@ -109,14 +109,17 @@ def add_project():
     cursor.close()
     conn.close()
 
+    flash("Project added successfully!")
+
     return redirect(url_for("dashBoard"))
 
-# logout system
+# for logout system
 @app.route("/logout")
 def log_out():
     session.clear()
     return redirect(url_for("adminLogin"))
 
+# for getting project list
 @app.route("/projectList")
 def projectlist():
     if "admin_id" not in session:
@@ -135,6 +138,7 @@ def projectlist():
 
     return render_template("projectList.html", projects = project_list)
 
+# for deleting projects
 @app.route("/delete_project/<string:project_title>", methods = ["POST"])
 def delete_project(project_title):
     if "admin_id" not in session:
@@ -149,7 +153,14 @@ def delete_project(project_title):
 
     cursor.close()
     conn.close()
+
+    flash("Deleted Succesfully")
     return redirect(url_for("projectlist"))
+
+# for Acheivement page
+@app.route("/acheivements")
+def acheivements():
+    return render_template("acheivements.html")
 
 # Run App
 if __name__ == "__main__":

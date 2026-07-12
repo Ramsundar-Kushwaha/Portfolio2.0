@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/static/css/dashboard_nav.css">
     <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
+    <link rel="stylesheet" href="/static/css/popup.css">
     <link rel="stylesheet" href="/static/css/color.css">
     <title>dashboard</title>
 {% endblock head %}
@@ -13,12 +14,20 @@
 
 {% block content %}
     <p>Welcome Admin <strong>{{ session["admin_id"] }} </strong></p>
-    <br><br><br>
+    <br><br>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div id = "popup" class="success">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith  %}
+    <br><br>
     <!--form for adding projects-->
     <form onsubmit= "return confirmProject();" action="/addprojects" method="POST" id="dashboardForm">
         <label for="title">title</label>
-        <input type="text" name="title" id="title" required>
+        <input type="text" name="title" id="title" placeholder="title here..." required>
 
         <label for="description">description</label>
         <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
@@ -45,6 +54,6 @@
 {% block footer %}
 {% endblock footer %}
 
-{% block scripts %}
+{% block script %}
 <script src="{{ url_for('static', filename = 'scripts/dashboard.js')}}"></script>
-{% endblock scripts %}
+{% endblock script %}

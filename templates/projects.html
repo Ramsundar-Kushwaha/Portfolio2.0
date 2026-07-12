@@ -7,26 +7,25 @@
 {% endblock head %}
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <h2 id="project_list">project list</h2>
-
-    <!--main section here, projects are here-->
-    <main>
+<main>
         <!--projects will be injected here from database (mysql)-->
-        {% for project in projects %}
-            <div class="project_card">
-                <div class="project_title">{{ project.title }}</div>
-                <div class="project_image"><img src="{{project.image_link}}" alt="project picture"></div>
-                <div class="project_description">{{ project.descriptions }}</div>
-                <div class="btn_box">
-                    <button class="submit" style = "background-color: #008184;" type="button">view</button>
+        <section class="hero">
+            {% for project in projects %}
+                <div class="project_card">
+                    <p class="project_title">{{ project.title }}</p>
+    
+                    <figure class="project_image"><img src="{{project.image_link}}" alt="project picture"></figure>
+    
+                    <p class="project_description">{{ project.descriptions }}</p>
+    
+                    <div class="btn_box">
+                        <button class="submit" style = "background-color: #008184;" type="button">view</button>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </section>
     </main>
 {% endblock content %}
 
-{% block scripts %}
-{% endblock scripts %}
+{% block script %}
+{% endblock script %}

@@ -1,45 +1,39 @@
-@media(min-width:340px) and (max-width:540px){
-    :root{
-        --standard-width : 95%;
-    
-        --gray-color : gray;
-    
-        --standart-fsize : 20px;
-        --standard-fweight : bold;
-        --standard-ttransform : capitalize;
-    }
+:root{
+    --standard-border-radius: 0.3em;
+    --standard-form-bg-color: rgba(255, 255, 255, 0.756);
+}
 
-    form{
-        width: var(--standard-width);
-        min-height: 50vh;
-        height: auto;
-        margin: auto;
-        padding: 0.5rem 0 0 0.5rem;
-        background-color: white;
-        box-shadow: 1px 1px 5px black;
+#admin_form{
+    width: min(400px, 90%);
+    height: min(500px, 100vw);
+    background-color: var(--standard-form-bg-color);
+    padding: 1em 0 0 0.5em;
+    border: none;
+}
+
+#admin_form label{
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+#admin_form input{
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: var(--standard-border-radius);
+    font-size: 14px;
+    border: 1px solid gray;
+    padding-left: 0.3em;
+    &:focus{
+        outline: none;
     }
-    label{
-        display: block;
-        text-transform: var(--standard-ttransform);
-        font-size: var(--standard-fsize);
-        font-weight: var(--standard-fweight);
-        letter-spacing: 0.1rem;
-        margin: 1rem 0 0.5rem 0;
-    }
-    input{
-        width: 90%;
-        height: 2rem;
-        border: none;
-        border: 1px solid var(--gray-color);
-        &:focus{
-            outline: none;
-        }
-    }
-    textarea{
-        width: 90%;
-        padding: 1px 0 0 1px;
-        &:focus{
-            outline: none;
-        }
-    }
+}
+
+#admin_form .btn_group{
+    width: 100%;
+    display: flex;
+    margin: 2em 0 0 0;
 }
