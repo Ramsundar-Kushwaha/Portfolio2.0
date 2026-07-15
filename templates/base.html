@@ -30,42 +30,43 @@
 
     <!-- footer block -->
     {% block footer %}
-    <footer>
-        <section class="footer_section">
-            <address class="contact">
-                <h2>Contact</h2>
-                <p>
-                    <a href="tel:+918972753801" target="_blank">+91 8972723801</a>
-                </p>
-                    
-                <p>
-                    <a href="mailto:24031051@quantumuniversity.edu.in" target="_blank">
-                        24031051@quantumuniversity.edu.in
-                    </a>
-                </p>
-            </address>
-    
-            <section class="social_link">
-                <h2>follow me</h2>
-                <div class="link_box">
-                    <a href="https://github.com" target="_blank">
-                        <img src="/static/icons/github.png" alt="Github">
-                    </a>
-                    
-                    <a href="https://linkdin.com">
-                        <img src="/static/icons/linkedin.png" alt="Linkdin">
-                    </a>
-    
-                    <a href="https://leetcode.com">
-                        <img src="/static/icons/code.png" alt="Leetcode">
-                    </a>
-                </div>
-            </section>
-    
-            <p class="copyright">
-                &copy; 2026 ramsundar. all rights reserved.
+    <footer class="base_footer">
+        <!-- Address Part -->
+        <address class="contact">
+            <h2>Contact</h2>
+            <p>
+                <a href="tel:+918972753801" target="_blank">+91 8972723801</a>
             </p>
+                
+            <p>
+                <a href="mailto:24031051@quantumuniversity.edu.in" target="_blank">
+                    24031051@quantumuniversity.edu.in
+                </a>
+            </p>
+        </address>
+
+        <!-- Social Media Links -->
+        <section class="social_link">
+            <h2>follow me</h2>
+            <div class="link_box">
+                <a href="https://github.com" target="_blank">
+                    <img class="social_logo_link" src="/static/icons/github.png" alt="Github">
+                </a>
+                
+                <a href="https://linkdin.com" target="_blank">
+                    <img class="social_logo_link" src="/static/icons/linkedin.png" alt="Linkdin">
+                </a>
+
+                <a href="https://leetcode.com" target="_blank">
+                    <img class="social_logo_link" src="/static/icons/code.png" alt="Leetcode">
+                </a>
+            </div>
         </section>
+
+        <!-- Copyright Message -->
+        <p id = "copyright">
+            &copy; 2026 ramsundar. all rights reserved.
+        </p>
     </footer>
     {% endblock footer %}
     

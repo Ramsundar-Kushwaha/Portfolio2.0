@@ -1,59 +1,84 @@
-{% extends 'base.html' %}
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/dashboard.css">
-    <link rel="stylesheet" href="/static/css/dashboard_nav.css">
     <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
     <link rel="stylesheet" href="/static/css/popup.css">
     <link rel="stylesheet" href="/static/css/color.css">
-    <title>dashboard</title>
-{% endblock head %}
+    <title>grid layout</title>
+</head>
+<body>
 
-{% block nav %}  
-{% endblock nav %}
+    <!-- Header -->
+    <header class="dashboard_header">
+        <section id = "logo_section">
+            <p>Ramsundar</p>
+        </section>
 
-{% block content %}
-    <p>Welcome Admin <strong>{{ session["admin_id"] }} </strong></p>
-    <br><br>
+        <section id = "dp_setting_section">
+            <a href="#">
+                <div class="dp_box">
+                    <img src="/static/profile/ramsundar.jpg" alt="DP" id="dp">
+                </div>
+            </a>
+        </section>
+    </header>
 
-    {% with messages = get_flashed_messages() %}
+    <!-- Sidebar Content -->
+    <aside>
+        <section class="page_link_section">
+            <a href="projectList">
+                Project
+                <!-- <img class="icon" src="/static/icons/project-management.png" alt="dashboard"> -->
+            </a>
+            <a href="dashboard">
+                Create
+                <!-- <img class="icon" src="/static/icons/dashboard.png" alt="dashboard"> -->
+            </a>
+            <a href="{{ url_for('log_out') }}">
+                Logout
+                <!-- <img class="icon" src="/static/icons/logout.png" alt="dashboard"> -->
+            </a>
+        </section>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <div id = "popup" class="success">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-    {% endwith  %}
-    <br><br>
-    <!--form for adding projects-->
-    <form onsubmit= "return confirmProject();" action="/addprojects" method="POST" id="dashboardForm">
-        <label for="title">title</label>
-        <input type="text" name="title" id="title" placeholder="title here..." required>
-
-        <label for="description">description</label>
-        <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
-
-        <label for="img_link">image Link</label>
-        <input type="text" name="img_link" placeholder="link here..." required>
-
-        <div class="dash_btn_group">
-            <button class="submit" type="submit" value="submit" style="background-color: black;">submit</button>
-            <button class="submit" type="reset" value="reset" style="background-color: black;">reset</button>
+        <div id = "popup" class="success">
+            {{ messages[0] }}
         </div>
+        {% endif %}
+        {% endwith  %}
+            
+        <!--form for adding projects-->
+        <form onsubmit= "return confirmProject();" action="/addprojects" method="POST" id="admin_form">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="title here..." required>
 
-    </form>
+            <label for="description">Description</label>
+            <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
 
-    <nav>
-        <ul>
-            <li><a href="projectList"><img class="icon" src="/static/icons/project-management.png" alt="dashboard"></a></li>
-            <li><a href="dashboard"><img class="icon" src="/static/icons/dashboard.png" alt="dashboard"></a></li>
-            <li><a href="{{ url_for('log_out') }}"><img class="icon" src="/static/icons/logout.png" alt="dashboard"></a></li>
-        </ul>
-    </nav>
-{% endblock content %}
+            <label for="img_link">Thumbail</label>
+            <input type="text" name="img_link" placeholder="link here..." required>
 
-{% block footer %}
-{% endblock footer %}
+            <div class="btn_group">
+                <button class="submit" type="submit" value="submit" style="background-color: black;">submit</button>
+                <button class="submit" type="reset" value="reset" style="background-color: black;">reset</button>
+            </div>
+        </form>
 
-{% block script %}
-<script src="{{ url_for('static', filename = 'scripts/dashboard.js')}}"></script>
-{% endblock script %}
+        <section class="extra_info">
+            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
+            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
+            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
+        </section>
+
+    </main>
+    <script src="{{ url_for('static', filename = 'scripts/dashboard.js')}}"></script>
+</body>
+</html>
