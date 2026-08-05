@@ -3,45 +3,86 @@
 {% block head %}
     <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
     <title>Home</title>
 {% endblock head %}
 
+{% block header %}
+<header>
+    {% include 'nav.html' %}
+</header>
+{% endblock header %}
+
 {% block content %}
 <main>
+    <section class="landing-page">
+        <div class="short-intro">
+            <div class="intro-main">
+                <p>I'M <span>Ramsundar</span></p>
+                <p>Computer Software Engineer</p>
+                <button>Contact me</button>
+            </div>
+        </div>
+        
+        <figure class="profile">
+            <img src="/static/profile/ramsundar_1.png" alt="ramsundar profile">
+        </figure>
+    </section>
+
+
     <!-- hero section of the page -->
+    <h1>About Me</h1>
+
     <section class="hero">
         <section class="biodata">
-            <h1>Hello</h1>
             <p>
-                I’m <strong>Ramsundar Kumar Kushwaha</strong>, a software engineering student pursuing a <strong>B.Tech in Computer Science and Engineering at Quantum University, Roorkee</strong>. I have a strong technical foundation backed by a <strong>Diploma</strong> in Computer Science and Engineering, which has shaped my problem-solving approach and engineering mindset.
+                A software engineering student pursuing a <strong>B.Tech in Computer Science and Engineering at Quantum University, Roorkee</strong>. I have a strong technical foundation backed by a <strong>Diploma</strong> in Computer Science and Engineering, which has shaped my problem-solving approach and engineering mindset.
             </p>
             <p>
                 I focus on continuous learning and building practical, scalable technology solutions. Driven by discipline, adaptability, and attention to detail, I aim to create meaningful impact through well-structured and reliable software.
             </p>
         </section>
-    
-        <figure>
-            <img src="/static/profile/ramsundar.jpg" alt="Ramsundar_profile_picture" id="profile_picture">
-            <div class="overlay"></div>
-        </figure>
     </section>
     
+    <!-- skill section -->
+     <h1>My Skills</h1>
+     <section class="my-skill">
+        <div class="skill"><img src="https://tse4.mm.bing.net/th/id/OIP.EGeajhPbf_wIQ5NTJGawlQHaHk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Python"></div>
+        <div class="skill"><img src="https://iconlogovector.com/uploads/images/2024/10/lg-671e245cd51d4-CPP.webp" alt="Python"></div>
+        <div class="skill"><img src="https://tse4.mm.bing.net/th/id/OIP.EGeajhPbf_wIQ5NTJGawlQHaHk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Python"></div>
+        <div class="skill"><img src="https://tse4.mm.bing.net/th/id/OIP.EGeajhPbf_wIQ5NTJGawlQHaHk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Python"></div>
+        <div class="skill"><img src="https://tse4.mm.bing.net/th/id/OIP.EGeajhPbf_wIQ5NTJGawlQHaHk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Python"></div>
+     </section>
+
+     <!-- recent projcts / work -->
+      <h1>Recent</h1>
+      <section class="recent-activity">
+        <div class="activity"></div>
+        <div class="activity"></div>
+        <div class="activity"></div>
+      </section>
     <!-- quick link section -->
     <section class="quick_links">
-        <a href="/resume">
-            <div class="quick_link_box bg_orange">resume</div>
+        <a href="#">
+            <div class="quick_link_box">resume</div>
         </a>
 
-        <a href="/projects">
-            <div class="quick_link_box bg_gold_red">projects</div>
+        <a href="{{url_for('project_page')}}">
+            <div class="quick_link_box">projects</div>
         </a>
 
-        <a href="acheivements">
-            <div class="quick_link_box bg_light_blue">acheivements</div>
+        <a href="#">
+            <div class="quick_link_box">acheivements</div>
         </a>   
     </section>
 </main>
 {% endblock %}
+
+{% block footer %}  
+<footer>
+    {% include 'footer.html' %}
+</footer>
+{% endblock footer %}
 
 {% block script %}
 {% endblock script %}

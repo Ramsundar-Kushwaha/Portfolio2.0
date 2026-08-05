@@ -1,16 +1,16 @@
 .admin_main{
     width: 100%;
     height: 100vh;
+
     display: flex;
     flex-direction: column;
+    
     align-items: center;
     justify-content: center;
 }
 
-.btn_group{
+div.btn_box{
     width: 100%;
-    display: flex;
-    margin: 2rem 0 0 0;
 }
 
 #video_background{

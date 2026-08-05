@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="/static/css/admin.css">
     <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
+    <link rel="stylesheet" href="/static/css/popup.css">
     <title>Admin</title>
 {% endblock head %}
 
@@ -16,14 +17,19 @@
     </video>
 
     <div class="overlay"></div>
-    <form action="/admin" method="POST" id="admin_form">
-        <label for="admin_id">Admin Id</label>
-        <input type="number" name="admin_id" placeholder="number only..." required>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="********" required>
+    <form action="{{ url_for('admin_login') }}" method="POST" id="admin_form">
+        {% if error %}
+            <div class="error" id="popup">{{ error }}</div>
+        {% endif %}
 
-        <div class="btn_group">
+        <h1>Login</h1>
+
+        <input type="text" name="username" placeholder="Username" required>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div class="btn_box">
             <button class="submit" type="submit" style="background-color: black;">login</button>
             <button class="submit" type="reset" style="background-color: black;">clear</button>
         </div>
@@ -35,4 +41,5 @@
 {% endblock footer %}
 
 {% block script %}
+<script src="/static/scripts/admin.js"></script>
 {% endblock script %}

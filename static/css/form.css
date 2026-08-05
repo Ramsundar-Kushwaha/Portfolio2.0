@@ -4,37 +4,33 @@
 }
 
 #admin_form{
-    width: min(400px, 95%);
-    height: min(min-content, 100vw);
-    background-color: var(--standard-form-bg-color);
-    padding: 1em 0 1em 0.5em;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: min(350px, 100%);
+    min-height: 350px;
+    max-height: fit-content;
+
+    background-color: white;
     border: none;
 }
-
-#admin_form label{
-    display: block;
-    font-size: 20px;
-    line-height: 30px;
-    margin: 1rem 0;
-    font-weight: bold;
-}
-
-#admin_form input, textarea{
+#admin_form input{
     width: 90%;
     border: 1px solid gray;
     border-radius: var(--standard-border-radius);
+    background-color: transparent;
     font-size: 14px;
-    padding-left: 0.3em;
+    padding: 1em 0;
     &:focus{
         outline: none;
     }
 }
-#admin_form input{
-    height: 40px;
-}
 
-#admin_form .btn_group{
+#admin_form .btn_box{
     width: 100%;
-    display: flex;
     margin: 2em 0 0 0;
 }

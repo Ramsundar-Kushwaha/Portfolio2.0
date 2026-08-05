@@ -4,81 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/dashboard.css">
-    <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/buttons.css">
     <link rel="stylesheet" href="/static/css/popup.css">
     <link rel="stylesheet" href="/static/css/color.css">
-    <title>grid layout</title>
+    <title>Dashboard</title>
 </head>
 <body>
 
     <!-- Header -->
     <header class="dashboard_header">
-        <section id = "logo_section">
-            <p>Ramsundar</p>
-        </section>
-
-        <section id = "dp_setting_section">
-            <a href="#">
-                <div class="dp_box">
-                    <img src="/static/profile/ramsundar.jpg" alt="DP" id="dp">
-                </div>
-            </a>
-        </section>
+        <nav>
+            <ul>
+                <li id="logo">Ramsundar</li>
+                <li id="pf"><a href="#"><div class="dp_box"><img src="/static/profile/ramsundar.jpg" alt="DP" id="dp"></div></a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Sidebar Content -->
     <aside>
         <section class="page_link_section">
-            <a href="projectList">
-                Project
-                <!-- <img class="icon" src="/static/icons/project-management.png" alt="dashboard"> -->
-            </a>
-            <a href="dashboard">
-                Create
-                <!-- <img class="icon" src="/static/icons/dashboard.png" alt="dashboard"> -->
-            </a>
-            <a href="{{ url_for('log_out') }}">
-                Logout
-                <!-- <img class="icon" src="/static/icons/logout.png" alt="dashboard"> -->
-            </a>
+           <a href="{{url_for('home')}}" target="_blank">Home</a>
+           <a href="{{url_for('project_page')}}" target="_blank">Project</a>
+           <a href="{{url_for('dashboard')}}">Add Project</a>
+           <a href="{{url_for('logout')}}">Logout</a>
         </section>
     </aside>
 
     <!-- Main Content -->
     <main>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div id = "popup" class="success">
-            {{ messages[0] }}
-        </div>
-        {% endif %}
-        {% endwith  %}
+        <form onsubmit= "return confirmProject();" action="{% if mode == 'edit' %}{{url_for('update_project', project_id = project.project_id)}}{% else %}{{ url_for('add_project') }}{% endif %}" method="POST">
+            {% with messages = get_flashed_messages(category_filter=["project"]) %}
+                {% if messages %}
+                    <div id="popup" class="success">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith  %}
+
+            <!-- ###### Section One ###### -->
+            <section class="section_one">
+                <!-- Starting Date -->
+                <label for="date" class="date">Starting Date <span>*</span></label>
+                <input type="date" name="date" id="date" value="{% if mode == 'edit' %}{{project.created_date}}{% else %}{{''}}{% endif %}" required>
+
+                <!-- Category -->
+               <label for="category" class="category">Category <span>*</span></label>
+               <select name="category" id="category" required>
+                    <option value="web_development" {% if mode == 'edit' and project.category=="web_development" %}
+                        selected
+                    {% endif %}>Web Development</option>
+                    <option value="desktop_application" {% if mode == 'edit' and project.category=="desktop_application" %}
+                        selected
+                    {% endif %}>Desktop Application</option>
+                    <option value="mobile_application" {% if mode == 'edit' and project.category=="mobile_application" %}
+                        selected
+                    {% endif %}>Mobile Application</option>
+                    <option value="aiml" {% if mode == 'edit' and project.category=="aiml" %}
+                        selected
+                    {% endif %}>Artificial Intelligence & Machine Learning</option>
+               </select>
+               
+               <!-- Title -->
+               <label for="title" class="title">Title <span>*</span></label>
+               <input type="text" name="title" id="title" value = "{% if project %}{{project.title}}{% else %}{{''}}{% endif %}" placeholder="Title..." required>
+               
+               <!-- Summary -->
+               <label for="summary" class="summary">Summary <span>*</span></label>
+               <input type="text" name="summary" id="summary" value = "{% if project %}{{project.summary}}{% else %}{{''}}{% endif %}" placeholder="Summary..." required>
+               
+               <!-- Technology Stack -->
+                <label for="technologies" class="technology_stack">Technology Stack <span>*</span></label>
+                <select name="technologies" id="technology_stack" multiple size="1" required>
+                    <optgroup label="Language">
+                        <option value="c"{% if mode == 'edit' and "c" in tech %}
+                            selected
+                        {% endif %}>C</option>
+                        <option value="c++"{% if mode == 'edit' and "c++" in tech %}
+                            selected
+                        {% endif %}>C++</option>
+                        <option value="python"{% if mode == 'edit' and "python" in tech %}
+                            selected
+                        {% endif %}>Python</option>
+                        <option value="java"{% if mode == 'edit' and "java" in tech %}
+                            selected
+                        {% endif %}>Java</option>
+                        <option value="javascript"{% if mode == 'edit' and "javascript" in tech %}
+                            selected
+                        {% endif %}>JavaScript</option>
+                        <option value="html"{% if mode == 'edit' and "html" in tech %}
+                            selected
+                        {% endif %}>HTML</option>
+                        <option value="css"{% if mode == 'edit' and "css" in tech %}
+                            selected
+                        {% endif %}>CSS</option>
+                    </optgroup>
+                    <optgroup label="framework">
+                        <option value="flask"{% if mode == 'edit' and "flask" in tech %}
+                            selected
+                        {% endif %}>Flask</option>
+                        <option value="django"{% if mode == 'edit' and "django" in tech %}
+                            selected
+                        {% endif %}>Django</option>
+                        <option value="flutter"{% if mode == 'edit' and "flutter" in tech %}
+                            selected
+                        {% endif %}>Flutter</option>
+                        <option value="react"{% if mode == 'edit' and "react" in tech %}
+                            selected
+                        {% endif %}>React</option>
+                        <option value="angular"{% if mode == 'edit' and "angular" in tech %}
+                            selected
+                        {% endif %}>Angular</option>
+                        <option value="bootstrap"{% if mode == 'edit' and "bootstrap" in tech %}
+                            selected
+                        {% endif %}>Bootstrap</option>
+                        <option value="tailwind"{% if mode == 'edit' and "tailwind" in tech %}
+                            selected
+                        {% endif %}>Tailwind</option>
+                    </optgroup>
+                    <optgroup label="database">
+                        <option value="mysql"{% if mode == 'edit' and "mysql" in tech %}
+                            selected
+                        {% endif %}>MySQL</option>
+                        <option value="postgres"{% if mode == 'edit' and "postgres" in tech %}
+                            selected
+                        {% endif %}>Postgres</option>
+                        <option value="mongodb"{% if mode == 'edit' and "mongodb" in tech %}
+                            selected
+                        {% endif %}>Mongodb</option>
+                    </optgroup>
+                </select>
+
+                <!-- Thumbnail -->
+                <label for="thumbnail" class="thumbnail">Thumbnail <span>*</span></label>
+                <input type="url" name="thumbnail" id="thumbnail" value = "{% if project %}{{project.thumbnail}}{% else %}{{''}}{% endif %}" placeholder="Thumbnail..." required>
+                
+                <!-- Description -->
+                <label for="description" class="description">Description <span>*</span></label>
+                <textarea name="description" id="description" cols="50" rows="15" placeholder="Description..." required>{% if project %}{{project.description}}{% else %}{{''}}{% endif %}</textarea>
+            </section>
+
+            <!-- ###### Section Two ###### -->
+            <section class="section_two">
+                <!-- Challenge -->
+                <label for="challenge" class="challenge">Challenges <span>*</span></label>
+                <textarea name="challenge" id="challenge" cols="50" rows="9" placeholder="Challenges..." required>{% if project %}{{project.challenge}}{% else %}{{''}}{% endif %}</textarea>
+                
+                <!-- Solution -->
+                <label for="solution" class="solution">Solutions <span>*</span></label>
+                <textarea name="solution" id="solution" cols="50" rows="8" placeholder="Solutions..." required>{% if project %}{{project.solution}}{% else %}{{''}}{% endif %}</textarea>
+                
+                <!-- Feature -->
+                <label for="feature" class="feature">Features <span>*</span></label>
+                <textarea name="feature" id="feature" cols="50" rows="8" placeholder="Features..." required>{% if project %}{{project.feature}}{% else %}{{''}}{% endif %}</textarea>
+                
+                <!-- Future Improvement -->
+                <label for="future_improvement" class="future_improvement">Future Improvements <span>*</span></label>
+                <textarea name="future_improvement" id="future_improvement" cols="50" rows="8" placeholder="Future Improvements..." required>{% if project %}{{project.future_improvement}}{% else %}{{''}}{% endif %}</textarea>
+
+                <!-- Status -->
+                 <label for="status">Status <span>*</span></label>
+                 <select name="status" id="status" required>
+                    <option value="in progress" {% if mode == 'edit' and project.status=='in progress' %}
+                        selected
+                    {% endif %}>In Progress</option>
+                    <option value="completed" {% if mode == 'edit' and project.status=='completed' %}
+                        selected
+                    {% endif %}>Completed</option>
+                    <option value="archived" {% if mode == 'edit' and project.status=='archived' %}
+                        selected
+                    {% endif %}>Archived</option>
+                 </select>
+            </section>
             
-        <!--form for adding projects-->
-        <form onsubmit= "return confirmProject();" action="/addprojects" method="POST" id="admin_form">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" placeholder="title here..." required>
 
-            <label for="description">Description</label>
-            <textarea name="desc" id="description" cols="50" rows="10" placeholder="description here..." required></textarea>
+            <!-- ###### Button Box ###### -->
+            <div class="btn_box">
+                <!-- Update / Add Button-->
+                <button class="submit" type="submit" value="submit" style="background-color: black;">
+                    {% if mode == "edit" %}
+                        Update
+                    {% else %}
+                        Add
+                    {% endif %}
+                </button>
 
-            <label for="img_link">Thumbail</label>
-            <input type="text" name="img_link" placeholder="link here..." required>
-
-            <div class="btn_group">
-                <button class="submit" type="submit" value="submit" style="background-color: black;">submit</button>
-                <button class="submit" type="reset" value="reset" style="background-color: black;">reset</button>
+                <!-- Clear Button -->
+                <button class="submit" type="reset" value="reset" style="background-color: black;">Clear</button>
             </div>
         </form>
-
-        <section class="extra_info">
-            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
-            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
-            <div class="activity"><p>Lorem ipsum dolor sit amet.</p></div>
-        </section>
-
     </main>
+
     <script src="{{ url_for('static', filename = 'scripts/dashboard.js')}}"></script>
 </body>
 </html>

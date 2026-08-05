@@ -1,0 +1,72 @@
+main.view_page{
+    width: min(1000px, 100%);
+    height: 100%;
+
+    margin-top: 60px;
+
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-row-gap: 1em;
+
+    justify-items: center;
+}
+section.hero{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+}
+section.hero p{
+    padding: 0.5em;
+}
+figure.main_screenshot{
+    width: 95%;
+    height: 200px;
+}
+figure.main_screenshot img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section.project_biodata{
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+div.navigate_info{
+    width: 95%;
+
+    display: flex;
+    justify-self: center;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    white-space: nowrap;
+    gap: 1em;
+}
+
+.navigate_info a{
+    flex: 0 0 auto;
+    text-decoration: none;
+
+    border-radius: 0.3em;
+    background-color: white;
+    color: black;
+
+    padding: 0.7em 0.5em;
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+.info_description{
+    width: 95%;
+    margin-top: 1em;
+    padding: 0 1em;
+}

@@ -1,3 +1,6 @@
+:root{
+    --GoogleSans : "GoogleSans";
+}
 *{
     padding: 0;
     margin: 0;
@@ -13,10 +16,18 @@ body::-webkit-scrollbar{
     display: none;
 }
 body{
-    background-color: whitesmoke;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fff;
+
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, min-content);
+    grid-auto-rows: min-content;
     grid-row-gap: 1em;
 
+}
+h1, p, a{
+    font-family: var(--GoogleSans);
+    font-style: normal;
+    font-weight: 400;
 }

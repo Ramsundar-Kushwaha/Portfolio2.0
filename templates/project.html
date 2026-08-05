@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
+    <title>projects</title>
+{% endblock head %}
+
+{% block content %}
+<main>
+    <header>
+        {% include 'nav.html' %}
+    </header>
+    <!--projects will be injected here from database (mysql)-->
+    <section class="hero">
+        {% for project in projects %}
+            <div class="project_card">
+                <p class="project_title">{{ project.project_id }}</p>
+    
+                <figure class="project_image"><img src="{{project.thumbnail}}" alt="project picture"></figure>
+    
+                <p class="project_description">{{ project.summary }}</p>
+                
+                {% if "username" in session %}
+                    <div class="btn_box">
+                        <a href="{{url_for('view_page', project_id = project.project_id)}}">
+                            <button type="button" class = "submit" style="background-color: black;">View</button>
+                        </a>
+
+                        <a href="{{url_for('update_project', project_id = project.project_id)}}">
+                            <button type = "button" class = "submit" style="background-color: black;">Update</button>
+                        </a>
+                    </div>
+
+                    <form action="{{ url_for('delete_project', project_id = project.project_id)}}" method="POST" onsubmit="return confirm('Are you sure?');" style="width: 100%; display: flex;">
+                        <button type="submit" class = "delete_btn">Delete</button>
+                    </form>
+                {% else %}
+                    <a href="{{url_for('view_page', project_id = project.project_id)}}">
+                        <button class="submit" style = "background-color: #008184;" type="button">view</button>
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

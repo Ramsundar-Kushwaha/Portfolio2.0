@@ -4,18 +4,17 @@
     --standard-btn-height:40px;
 }
 .submit{
-    width: 35%;
+    width: 100px;
     height: var(--standard-btn-height);
     padding: 0.5rem 1.5rem;
     border: none;
-    margin: auto;
     color: white;
+    cursor: pointer;
     border-radius: var(--standard-border-radius);
     &:hover{
         opacity: var(--standard-opacity);
     }
 }
-
 .delete_btn{
     width: 85%;
     height: var(--standard-btn-height);
@@ -24,6 +23,7 @@
     border: none;
     background-color: red;
     color: white;
+    cursor: pointer;
     border-radius: var(--standard-border-radius);
     &:hover{
         opacity: var(--standard-opacity);
@@ -31,4 +31,11 @@
     &:focus{
         outline: none;
     }
+}
+
+div.btn_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    justify-items: center;
 }

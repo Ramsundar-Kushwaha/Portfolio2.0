@@ -1,0 +1,5 @@
+@font-face{
+    font-family: "GoogleSans";
+    src: url("/static/fonts/static/GoogleSans_17pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+}

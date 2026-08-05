@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/view.css">
+{% endblock head %}
+
+<header>
+    {% include 'nav.html' %}
+</header>
+
+{% block content %}
+<main class="view_page">
+    <section class="hero">
+        <p><strong>Title:</strong> <span>{{project.title}}</span></p>
+        <p><strong>Summary:</strong> <span>{{project.summary}}</span></p>
+        <p><strong>Category:</strong> <span>{{project.category | title}}</span></p>
+        <p><strong>Status:</strong> <span>{{project.status | title}}</span></p>
+        <p><strong>Created Date:</strong> <span>{{project.created_date}}</span></p>
+        <p><strong>Upload Date:</strong> <span>{{project.upload_date}}</span></p>
+        <p><strong>Updated Date:</strong> <span>{{project.updated_date}}</span></p>
+    </section>
+
+    <figure class="main_screenshot">
+        <img src="{{project.thumbnail}}" alt="thumbnail">
+    </figure>
+
+    <section class="project_biodata">
+        <div class="navigate_info">
+            <a href="">About the Project</a>
+            <a href="">Technology Stack</a>
+            <a href="">Features</a>
+            <a href="">Screenshot Gallery</a>
+            <a href="">Challenges & Solutions</a>
+            <a href="">Live Demo</a>
+            <a href="">Future Improvements</a>
+        </div>
+
+        <div class="info_description" id="info_description">
+            {{project.description}}
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block scripts %}
+{% endblock scripts %}

@@ -1,31 +1,56 @@
-footer.base_footer{
-    background-color: #008184;
-    padding-left: 0.5rem;
+:root{
+    --GoogleSans : "GoogleSans";
+}
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content 3fr 1fr;
-    grid-gap: 1em;
-}
-address.contact , section.social_link h2{
-    color: white;
-    margin: 0 0 0.5em 0;
-    font-style: normal;
-}
-address.contact p{
-    line-height: 1.5em;
-}
-section.social_link div.link_box{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 40px);
-    grid-column-gap: 1.5em;
-}
-div.link_box a img{
+footer{
     width: 100%;
     height: 100%;
-}
-#copyright{
-    align-self: end;
     justify-self: center;
-    color: #eee;
+
+    border-top: 1px solid #caccce;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: min-content;
+}
+
+.contact{
+    width: 100%;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0.5em;
+    justify-items: center;
+}
+.social_link{
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: min-content;
+    grid-row-gap: 1em;
+    justify-items: center;
+}
+
+.link_box{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.link_box a img{
+    width: 40px;
+    height: 40px;
+}
+
+#copyright{
+    width: 100%;
+    height: 100%;
+    justify-items: center;
 }
