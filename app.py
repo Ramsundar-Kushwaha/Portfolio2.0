@@ -392,7 +392,19 @@ def update_project(project_id):
             future_improvement = request.form["future_improvement"]
 
             # UPDATING THE PROJECT TABLE
-            query = "UPDATE projects SET created_date = ?, category = ?, title = ? , summary = ?, thumbnail = ?, description = ?, challenge = ?, solution = ?, feature = ?, future_improvement = ? WHERE project_id = ?"
+            query = """UPDATE projects SET
+            created_date = ?,
+            category = ?,
+            title = ? ,
+            summary = ?,
+            thumbnail = ?,
+            description = ?,
+            challenge = ?,
+            solution = ?,
+            feature = ?,
+            future_improvement = ?,
+            updated_date = CURRENT_TIMESTAMP
+            WHERE project_id = ?"""
 
             cursor = conn.cursor()
             cursor.execute(query, (date, category, title, summary, thumbnail, description, challenge, solution, feature, future_improvement, project_id,))
