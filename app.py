@@ -12,7 +12,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 # makes connection to database
 def get_db_connection():
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect("instances/database.db")
     conn.execute("PRAGMA foreign_keys = on")
     conn.row_factory = sqlite3.Row
 
