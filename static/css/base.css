@@ -18,7 +18,7 @@ body::-webkit-scrollbar{
 body{
     min-height: 100vh;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: #f3f4ff;
 
     display: grid;
     grid-template-columns: 1fr;

@@ -1,5 +1,7 @@
 :root{
     --googleSans : "GoogleSans";
+    --swayamBg : #f3f4ff;
+    --swayam : #0259ca;
 }
 
 *{
@@ -10,7 +12,7 @@ main{
     width: 100%;
     height: 100%;
     justify-self: center;
-    margin-top: 4em;
+    margin-top: 2.9em;
 
     display: grid;
     grid-template-columns: subgrid;
@@ -20,7 +22,7 @@ main h1{
     margin-top: 2em;
 }
 .landing-page{
-    background-color: #2b5b84;
+    background:linear-gradient(55deg,white 55%, #0259cac9 45%);
 
     display: grid;
     grid-template-rows: subgrid;
@@ -35,7 +37,6 @@ main h1{
     align-content: center;
 }
 .intro-main p{
-    color: white;
     line-height: 30px;
     font-family: var(--googleSans);
 }
@@ -43,18 +44,18 @@ main h1{
     padding: 0.5em 1em;
     background-color: transparent;
     border: none;
-    background-color: #ffd343;
-    box-shadow: 0px 0px .5em #ffd343;
+    background-color: var(--swayam);
     cursor: pointer;
     font-family: var(--googleSans);
+    color: white;
     transition: transform 0.5s ease;
     &:hover{
         transform: scale(1.2);
     }
 }
 .intro-main p span{
-    color: #ffd343;
-    font-size: 2em;
+    color: var(--swayam);
+    font-size: 1.8em;
     font-weight: bold;
     letter-spacing: 0.1em;
 }
@@ -73,7 +74,7 @@ h1{
     padding: 1em 0;
 }
 .hero{
-    width: 90%;
+    width: 60%;
     height: 100%;
 
     justify-self: center;
@@ -92,7 +93,7 @@ h1{
     font-family: var(--googleSans);
 }
 .my-skill{
-    width: 90%;
+    width: 50%;
     height: 100%;
     justify-self: center;
 
@@ -105,7 +106,7 @@ h1{
     width: 100%;
     height: 50px;
     border-radius: .3em;
-    background-color: #caccce;
+    background-color: #187ae214;
 
     display: flex;
     flex-direction: column;
@@ -113,10 +114,10 @@ h1{
     align-items: center;
     cursor: pointer;
 
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
     &:hover{
-        transform: scale(1.1) rotate(10deg);
-        box-shadow: 0px 0px .8em lightblue;
+        transform: scale(1.1);
+        box-shadow: 0px 0px .8em #caccce;
     }
 }
 .skill img{
@@ -127,28 +128,52 @@ h1{
 .recent-activity{
     justify-self: center;
 
-    width: 90%;
+    width: 70%;
     height: 100%;
 
     padding: .5em 0;
 
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 190px;
+    grid-auto-columns: 250px;
     grid-gap: 0.5em;
     overflow-x: auto;
 }
 .activity{
     width: 100%;
-    height: 120px;
-    background-color: #caccce;
-    box-shadow: 0px 0px 5px #caccce;
-    align-content: center;
-    justify-content: center;
+    height: 300px;
+
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
     cursor: pointer;
+    border-radius: .5em;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+    &:hover{
+        scale: 0.95;
+    }
+
+}
+.activity h4{
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    color: white;
+    background-color: #0259cac9;
+    &:hover{
+        background-color: black;
+    }
 }
 .quick_links{
-    width: 90%;
+    width: 70%;
     justify-self: center;
     margin: 2rem 0 0 0;
 
@@ -159,16 +184,22 @@ h1{
 .quick_link_box{
     justify-self: center;
 
-    height: 100px;
-    width: min(400px, 100%);
+    height: 80px;
+    width: min(300px, 100%);
     display: flex;
     flex-direction: column;
 
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
+    transition: .3s ease;
+    background-color: white;
 
-    transition: transform .3s ease;
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: 0px 0px .5em #caccce;
+    }
 }
 .quick_links a{
     text-decoration: none;
@@ -176,32 +207,32 @@ h1{
     text-transform: capitalize;
     font-family: var(--googleSans);
 }
-#resume{
-    background-color: rgb(254, 170, 14);
-    &:hover{
-        transform: scale(1.1);
-        box-shadow: 0px 0px .5em rgb(254, 170, 14);
-    }
-}
-#projects{
-    background-color: rgba(255, 68, 0, 0.909);
-    &:hover{
-        transform: scale(1.1);
-        box-shadow: 0px 0px .5em rgba(255, 68, 0, 0.909);
-    }
-}
-#acheivements{
-    background-color: lightgreen;
-    &:hover{
-        transform: scale(1.1);
-        box-shadow: 0px 0px .5em lightgreen;
-    }
-}
 
-
-/* for larger screen */
-@media(min-width: 800px){
-    main{
+@media(max-width: 612px){
+    .hero{
+        width: 90%;
+    }
+    .my-skill{
+        width: 70%;
+    }
+    .recent-activity{
+        width: 90%;
+    }
+    .quick_links{
+        width: 90%;
+    }
+}
+@media(min-width: 613px) and (max-width:800px){
+    .hero{
+        width: 80%;
+    }
+    .my-skill{
+        width: 60%;
+    }
+    .recent-activity{
+        width: 80%;
+    }
+    .quick_links{
         width: 80%;
     }
 }

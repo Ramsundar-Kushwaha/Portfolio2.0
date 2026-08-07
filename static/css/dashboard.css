@@ -1,3 +1,6 @@
+:root{
+    --swayam:#0259ca;
+}
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +13,8 @@ body{
     grid-template-columns: 1fr;
     grid-template-rows: 70px min-content auto;
 
-    background-color: whitesmoke;
+    background-color: white;
+    /* color: white; */
 
 }
 header{
@@ -28,7 +32,7 @@ nav{
     top: 0;
     left: 0;
 
-    background-color: rgb(0, 0, 0);
+    background-color: var(--swayam);
     align-content: center;
 }
 ul{
@@ -39,9 +43,10 @@ li{
     list-style: none;
 }
 #logo{
-    border-left: 10px solid orange;
+    border-left: 15px solid orange;
     color: white;
     font-size: larger;
+    font-weight: bolder;
     letter-spacing: 0.1em;
     align-content: center;
 }
@@ -62,15 +67,13 @@ li{
     transform: scale(3.0);
 }
 aside{
-    background-color: aliceblue;
     grid-row: 3 / 4;
     grid-column: 1 / 2;
     align-content: end;
 }
 aside section.page_link_section{
-    height: fit-content;
+    background-color: #0259cace;
     display: flex;
-    background-color: rgba(1, 1, 5, 0.906);
     padding: 1em 0;
     > a{
         text-decoration: none;
@@ -79,7 +82,7 @@ aside section.page_link_section{
         margin: auto;
         transition: 400ms ease-in-out;
         &:hover{
-            background-color: gray;
+            background-color: black;
         }
     }
 }

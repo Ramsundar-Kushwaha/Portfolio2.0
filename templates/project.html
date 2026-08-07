@@ -20,6 +20,12 @@
                 <figure class="project_image"><img src="{{project.thumbnail}}" alt="project picture"></figure>
     
                 <p class="project_description">{{ project.summary }}</p>
+
+                <div class="subcard">
+                    <p>Create Date: <span>{{project.created_date}}</span></p>
+                    <p>Upload Date: <span>{{project.upload_date}}</span></p>
+                    <p>Updated Date: <span>{{project.updated_date}}</span></p>
+                </div>
                 
                 {% if "username" in session %}
                     <div class="btn_box">
@@ -37,7 +43,7 @@
                     </form>
                 {% else %}
                     <a href="{{url_for('view_page', project_id = project.project_id)}}">
-                        <button class="submit" style = "background-color: #008184;" type="button">view</button>
+                        <button class="submit" type="button">view</button>
                     </a>
                 {% endif %}
             </div>

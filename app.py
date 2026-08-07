@@ -115,31 +115,21 @@ def home():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM projects")
+    query = """
+SELECT title, thumbnail FROM projects
+ORDER BY upload_date DESC
+LIMIT 5"""
+
+    cursor.execute(query)
     projects = cursor.fetchall()
+
     for p in projects:
         print(dict(p))
-
-    cursor.execute("SELECT * FROM technologies")
-    tech = cursor.fetchall()
-    for t in tech:
-        print(dict(t))
-
-    cursor.execute("SELECT * FROM project_technologies")
-    pt = cursor.fetchall()
-    for j in pt:
-        print(dict(j))
-
-
-    cursor.execute("SELECT * FROM admins")
-    admins = cursor.fetchall()
-    for a in admins:
-        print(dict(a))
 
     cursor.close()
     conn.close()
 
-    return render_template("index.html")
+    return render_template("index.html", recents = projects)
 
 # ----- Project Page ----- #
 @app.route("/project_page")
@@ -147,7 +137,15 @@ def project_page():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    query = "SELECT project_id, title, summary, thumbnail FROM projects"
+    query = """SELECT
+    project_id,
+    title,
+    summary,
+    thumbnail,
+    created_date,
+    upload_date,
+    updated_date
+    FROM projects"""
 
     cursor.execute(query)
     data = cursor.fetchall()

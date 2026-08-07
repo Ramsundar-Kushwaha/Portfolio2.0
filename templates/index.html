@@ -62,11 +62,11 @@
     <!-- recent projcts / work -->
     <h1>Recent</h1>
     <section class="recent-activity">
-        <div class="activity">activity 1</div>
-        <div class="activity">activity 2</div>
-        <div class="activity">activity 3</div>
-        <div class="activity">activity 2</div>
-        <div class="activity">activity 3</div>
+        {% for recent in recents %}
+            <div class="activity" style="background-image: url('{{recent.thumbnail}}');">
+                <h4>{{recent.title}}</h4>
+            </div>
+        {% endfor %}
     </section>
 
 

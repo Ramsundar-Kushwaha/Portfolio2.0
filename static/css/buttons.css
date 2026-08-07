@@ -2,6 +2,7 @@
     --standard-border-radius:0.3em;
     --standard-opacity:0.8;
     --standard-btn-height:40px;
+    --swayam: #0259ca;
 }
 .submit{
     width: 100px;
@@ -10,6 +11,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    background-color: var(--swayam);
     border-radius: var(--standard-border-radius);
     &:hover{
         opacity: var(--standard-opacity);
